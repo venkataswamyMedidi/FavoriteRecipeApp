@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const app = express()
-const path = require('path');
+const path = require('path')
 const apiPort = 3001
 const userRouter = require('./route/user')
 const recipesRouter = require('./route/recipes')
@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "../../client/build")))
 app.get("*", (res, req) => {
     res.sendFile(path.join(__dirname, "../../client/build/index.html"))
 })
+
 // app.get('/', (req, res) => {
 //     res.send('Server Started!')
 // })
