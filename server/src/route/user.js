@@ -1,8 +1,24 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
-const bcrypt = require('bcrypt')
+//const bcrypt = require('bcrypt')
 const UserModel = require('../models/User.js');
-const Router = require('express');
+// const Router = require('express');
+
+
+// const { scryptSync, randomBytes } = require("crypto");
+// const salt = randomBytes(16).toString("hex")
+// const getHash = (password) => scryptSync(password, salt, 32).toString("hex");
+// console.log("getHash", getHash)
+
+var simplecrypt = require("simplecrypt");
+var sc = simplecrypt();
+
+var digest = sc.encrypt("my secret");
+console.log(digest); // "66cea6eb1c18b8862485cf0604fa6062"
+
+var message = sc.decrypt(digest);
+console.log("message", message);
+
 
 const router = express.Router();
 
@@ -14,7 +30,7 @@ router.post("/register", async (req, res) => {
         return res.json({ message: "User already exists!" })
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await message.hash(password, 10);
     const newUser = new UserModel({ username, password: hashedPassword })
     await newUser.save()
 
