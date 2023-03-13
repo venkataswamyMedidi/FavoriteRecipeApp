@@ -21,16 +21,20 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use("/auth", userRouter)
 app.use("/recipes", recipesRouter)
+const process = require('process');
 
-// app.use(express.static(path.join(__dirname, "../../client/build")))
+app.use(express.static(path.join(__dirname, "../../client/build")))
 
-// app.get("*", (res, req) => {
-//     res.sendFile(path.join(__dirname, "../../client/build/index.html"))
-// })
-
-app.get('/', (req, res) => {
-    res.send('Server Started!')
+app.get("/", (res, req) => {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"))
 })
+process.on('warning', (warning) => {
+    console.log("warning", warning.stack);
+});
+
+// app.get('/', (req, res) => {
+//     res.send('Server Started!')
+// })
 
 //app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
 
