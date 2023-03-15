@@ -23,17 +23,45 @@ app.use("/auth", userRouter)
 app.use("/recipes", recipesRouter)
 const process = require('process');
 
-app.use(express.static(path.join(__dirname, "../../client/build")))
 
-app.get("/", (res, req) => {
-    res.sendFile(path.join(__dirname, "../../client/build/index.html"))
-})
+
+// app.use(cors({
+//     credentials: true,
+//     origin: ['http://localhost:3000/'],
+//     optionSuccessStatus: 200,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// }))
+
+
+// app.use(function (req, res, next) {
+//     //res.header('Access-Control-Allow-Origin', req.header('origin'));
+//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+//     //header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+//     //res.header({'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'})
+//     //res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers")
+//     next();
+// });
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 process.on('warning', (warning) => {
     console.log("warning", warning.stack);
 });
 
-// app.get('/', (req, res) => {
-//     res.send('Server Started!')
+app.get('*', (req, res) => {
+    res.send('Server Started!')
+})
+
+// app.use(express.static(path.join(__dirname, "../../client/build")))
+
+// app.get("/", (res, req) => {
+//     res.sendFile(path.join(__dirname, "../../client/build/index.html"))
 // })
 
 //app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))

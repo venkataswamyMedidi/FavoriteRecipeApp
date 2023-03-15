@@ -11,7 +11,6 @@ export const Auth = () => {
     const [cookies, setCookies] = useCookies(["access_token"])
     const navigate = useNavigate()
 
-
     const changeAuthMode = () => {
         setAuthMode(authMode === "signin" ? "signup" : "signin");
     };
@@ -21,6 +20,7 @@ export const Auth = () => {
         event.preventDefault();
         try {
             await axios.post("https://recipe-mernurl.herokuapp.com/auth/register", {
+            //await axios.post("http://localhost:3001/auth/register", {
                 username,
                 password
             })
@@ -35,6 +35,7 @@ export const Auth = () => {
         event.preventDefault();
         try {
             const response = await axios.post("https://recipe-mernurl.herokuapp.com/auth/login", {
+            //const response = await axios.post("http://localhost:3001/auth/login", {
                 username,
                 password
             })

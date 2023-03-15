@@ -41,6 +41,7 @@ export const CreateRecipe = () => {
         try {
             await axios.post(
                 "https://recipe-mernurl.herokuapp.com/recipes",
+                //"http://localhost:3001/recipes",
                 { ...recipe },
                 {
                     headers: { authorization: cookies.access_token },
