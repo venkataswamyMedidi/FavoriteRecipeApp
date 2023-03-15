@@ -20,13 +20,17 @@ export const Auth = () => {
         event.preventDefault();
         try {
             await axios.post("https://recipe-mernurl.herokuapp.com/auth/register", {
-            //await axios.post("http://localhost:3001/auth/register", {
+                //await axios.post("http://localhost:3001/auth/register", {
                 username,
-                password
+                password,
+                headers: {
+                    Accept: "application/json",
+                    "User-Agent": "axios 0.21.1"
+                }
             })
             alert("Registration Completed! Now login.")
         } catch (error) {
-            console.error(error)
+            console.error("registererror", error)
         }
     }
 
@@ -35,9 +39,13 @@ export const Auth = () => {
         event.preventDefault();
         try {
             const response = await axios.post("https://recipe-mernurl.herokuapp.com/auth/login", {
-            //const response = await axios.post("http://localhost:3001/auth/login", {
+                //const response = await axios.post("http://localhost:3001/auth/login", {
                 username,
-                password
+                password,
+                headers: {
+                    Accept: "application/json",
+                    "User-Agent": "axios 0.21.1"
+                }
             })
             // console.log("response", response)
             // console.log("c1", setCookies("access_token", response.data.token));
@@ -46,7 +54,7 @@ export const Auth = () => {
             window.localStorage.setItem("userID", response.data.userID)
             navigate("/")
         } catch (error) {
-            console.log(error)
+            console.log("loginerror", error)
         }
     }
 

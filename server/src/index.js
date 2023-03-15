@@ -54,15 +54,15 @@ process.on('warning', (warning) => {
     console.log("warning", warning.stack);
 });
 
-app.get('*', (req, res) => {
-    res.send('Server Started!')
-})
-
-// app.use(express.static(path.join(__dirname, "../../client/build")))
-
-// app.get("/", (res, req) => {
-//     res.sendFile(path.join(__dirname, "../../client/build/index.html"))
+// app.get('*', (req, res) => {
+//     res.send('Server Started!')
 // })
+
+app.use(express.static(path.join(__dirname, "../../client/build")))
+
+app.get("*", (res, req) => {
+    res.sendFile(path.join(__dirname, "../../client/build/index.html"))
+})
 
 //app.listen(apiPort, () => console.log(`Server running on port ${apiPort}`))
 
