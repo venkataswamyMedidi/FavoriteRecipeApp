@@ -20,7 +20,7 @@ export const Auth = () => {
         event.preventDefault();
         try {
             await axios.post("https://recipe-mernurl.herokuapp.com/auth/register", {
-                //await axios.post("http://localhost:3001/auth/register", {
+                // await axios.post("http://localhost:3001/auth/register", {
                 username,
                 password,
                 headers: {
@@ -42,10 +42,10 @@ export const Auth = () => {
                 //const response = await axios.post("http://localhost:3001/auth/login", {
                 username,
                 password,
-                headers: {
-                    Accept: "application/json",
-                    "User-Agent": "axios 0.21.1"
-                }
+                // headers: {
+                //     Accept: "application/json",
+                //     "User-Agent": "axios 0.21.1"
+                // }
             })
             // console.log("response", response)
             // console.log("c1", setCookies("access_token", response.data.token));

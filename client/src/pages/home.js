@@ -7,6 +7,7 @@ export const Home = () => {
     const [savedRecipes, setSavedRecipes] = useState([]);
 
     const userID = useGetUserID();
+    console.log("userID", userID)
 
     useEffect(() => {
         const fetchRecipes = async () => {
