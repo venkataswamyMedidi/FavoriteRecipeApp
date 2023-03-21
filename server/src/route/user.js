@@ -37,9 +37,9 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const recipe = RecipesModel.findById(req.body.recipeID);
-  const usernumber = UserModel.findById(req.body.userID);
-  console.log("userID_recipe.js_31", { usernumber, recipe });
+  //const recipe = RecipesModel.findById(req.body.recipeID);
+  //const usernumber = UserModel.findById(req.body.userID);
+  //   console.log("userID_recipe.js_31", { usernumber, recipe });
 
   const { username, password } = req.body;
   const user = await UserModel.findOne({ username });

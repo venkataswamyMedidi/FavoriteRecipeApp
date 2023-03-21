@@ -71,14 +71,12 @@ const Form = ({
   textLabel,
   onSubmit,
 }) => {
-  console.log("label111", { textLabel });
+
   return (
     <div className="auth-container">
       <h2>{textLabel}</h2>
       <form onSubmit={onSubmit}>
         <h2>{textLabel}</h2>
-        {console.log("label112222", textLabel, username)}
-
         <div className="form-group">
           <label htmlFor="username"> username:</label>
           <input

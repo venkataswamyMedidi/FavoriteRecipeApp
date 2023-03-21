@@ -10,6 +10,7 @@ export const Auth = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);
   // const [loginStatus, setLoginStatus] = useState("")
   const [errorMessage, setErrorMessage] = useState(null);
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
   const changeAuthMode = () => {
@@ -43,12 +44,12 @@ export const Auth = () => {
           password,
         }
       );
-      console.log("userIDAUTH46", response);
+      // console.log("userIDAUTH46", response);
       if (!response.data.userID) {
         //setLoginStatus(false)
-        console.log("Data ", response.data);
-        console.log("Status ", response.status);
-        console.log("Headers ", response.headers);
+        // console.log("Data ", response.data);
+        // console.log("Status ", response.status);
+        // console.log("Headers ", response.headers);
 
         setErrorMessage(response.data.message);
         navigate("/auth");
@@ -60,10 +61,16 @@ export const Auth = () => {
       }
     } catch (error) {
       console.log("loginerror", error);
-      console.log("loginmessage", res.message);
+      // console.log("loginmessage", res.message);
       //return res.status(401).send(error.message);
     }
   };
+
+  // onClick Password
+  const onSubmitPassword = async (event) => {
+    // event.preventDefault()
+    setShow(true)
+  }
 
   if (authMode === "signup") {
     return (
@@ -94,11 +101,14 @@ export const Auth = () => {
                 Submit
               </button>
             </div>
-            <p className="forgot-password text-right mt-2">
-              Forgot <a href="##">password?</a>
+            <p className="text-center mt-2" onClick={onSubmitPassword}>
+              Forgot{" "}
+              <a href="https://media.tenor.com/M3MEScrStf4AAAAM/the-big-short-fuck.gif" allowFullScreen alt="funny GIF" style={{ fontSize: 16 }}>
+                password?
+              </a>
             </p>
           </div>
-          <div className="">{errorMessage}</div>
+          <div className="errorMessage">{errorMessage}</div>
         </form>
       </div>
     );
@@ -155,6 +165,7 @@ export const Auth = () => {
             </a>
           </p>
         </div>
+        {/* <div className="errorMessage">{errorMessage}</div> */}
       </form>
     </div>
   );
