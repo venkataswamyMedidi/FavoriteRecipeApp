@@ -1,8 +1,8 @@
 # FavoriteRecipeApp
 
-This project is implemented on MERN stack - REACTJS, NODEJS, MONGODB.
+This project is implemented on MERN stack - UI-REACTJS, RESTFULAPI implementation with NODEJS, DATABASE-MONGODB.
 
-The projects help to create, save your Favorite Recipes with user credential with Login and Register pages.
+This project help to create, add ingredients and save your Favorite Recipes with user credential Login and Registration pages along with authentication.
 
 <div>
 <img width="222" alt="Screenshot 2023-03-11 at 4 33 46 PM" src="https://user-images.githubusercontent.com/29959067/224516243-65635f3f-0a5a-4e39-b75d-d1b823790115.png">
