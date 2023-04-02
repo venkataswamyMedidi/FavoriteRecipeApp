@@ -3,10 +3,11 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import { Button } from 'semantic-ui-react'
 
 export const CreateRecipe = () => {
   const userID = useGetUserID();
-  const [cookies, _] = useCookies(["access_token"]);
+  const [cookies] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
     name: "",
     // description: "",
@@ -110,7 +111,8 @@ export const CreateRecipe = () => {
           value={recipe.cookingTime}
           onChange={handleChange}
         />
-        <button type="submit">Create Recipe</button>
+        <br />
+        <Button inverted color='teal' type="submit">Create Recipe</Button>
       </form>
     </div>
   );

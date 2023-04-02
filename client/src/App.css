@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .App {
+  min-height: 100vh;
+  background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: initial;
   align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -51,31 +54,35 @@ input {
 }
 
 .navbar {
+  background-image: linear-gradient(0deg, #5c8298 0%, #9fa450 100%);
   margin: 0;
   width: 100%;
-  height: 80px;
-  background-color: ivory;
+  /* height: 80px; */
+  /* background-color: ivory; */
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  color: white;
+  /* color: white; */
   text-decoration: none;
 }
 
 a {
-  color: white;
+  color: #09090a !important;
   text-decoration: none !important;
-  margin: 10px;
-  font-size: 20px;
+  margin: 16px;
+  font-size: 21px;
+  font-family: cursive;
 }
 
 .create-recipe {
+  /* background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F60-isolated-raw-food-images--303078249907447467%2F&psig=AOvVaw1sFKuunxxrbIEV2IDGTBDh&ust=1680548904137000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPDghdXyi_4CFQAAAAAdAAAAABAE");
+  background-color: #cccccc; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background-color: white;
+  /* background-color: white; */
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
@@ -97,11 +104,6 @@ li {
   margin-bottom: 10px;
 }
 
-/* h2 {
-  margin-top: 0;
-  background-color: aqua;
-  color: blue;
-} */
 h1 {
   font-size: 1.5em !important;
   margin: 0.67em 0 !important;
@@ -153,7 +155,10 @@ p {
   color: rgb(34, 34, 34);
   font-weight: 800;
 }
-
+.title {
+  text-align: center;
+  font-family: ui-monospace;
+}
 label {
   font-size: 14px;
   font-weight: 600;
