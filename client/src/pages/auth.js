@@ -158,12 +158,12 @@ export const Auth = () => {
               Submit
             </button>
           </div>
-          <p className="text-center mt-2">
+          {/* <p className="text-center mt-2">
             Forgot{" "}
             <a href="##" style={{ fontSize: 16 }}>
               password?
             </a>
-          </p>
+          </p> */}
         </div>
         {/* <div className="errorMessage">{errorMessage}</div> */}
       </form>
