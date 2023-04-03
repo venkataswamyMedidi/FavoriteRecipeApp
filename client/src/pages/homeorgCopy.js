@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { useCookies } from "react-cookie";
@@ -11,7 +11,7 @@ export const Home = () => {
   const [cookies] = useCookies(["access_token"]);
 
   const userID = useGetUserID();
-
+  // console.log("userIDHome12", userID);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -67,9 +67,7 @@ export const Home = () => {
   return (
     <div className="title">
       <h1 style={{ fontFamily: "fantasy" }} >Recipes Home</h1>
-      <div>
 
-      </div>
       <ul>
         {recipes.map((recipe) => (
           <li key={recipe._id}>
@@ -80,6 +78,12 @@ export const Home = () => {
                 <Button.Content visible> {isRecipeSaved(recipe._id) ? "Saved" : "Click To Save"}</Button.Content>
                 <Button.Content hidden>Save Recipe to Login</Button.Content>
               </Button>
+              {/* <button class="ui button"
+                onClick={() => saveRecipe(recipe._id)}
+                disabled={isRecipeSaved(recipe._id)}
+              >
+                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+              </button> */}
             </div>
             <div className="instructions">
               <p>{recipe.instructions}</p>
