@@ -58,7 +58,7 @@ export const CreateRecipe = () => {
 
   return (
     <div className="create-recipe">
-      <h2>Create Recipe</h2>
+      <h2 style={{ fontFamily: "emoji" }}>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -112,7 +112,7 @@ export const CreateRecipe = () => {
           onChange={handleChange}
         />
         <br />
-        <Button inverted color='teal' type="submit">Create Recipe</Button>
+        <Button inverted color='teal' type="submit" style={{ fontFamily: "emoji" }}>Create Recipe</Button>
       </form>
     </div>
   );

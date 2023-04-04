@@ -72,7 +72,7 @@ export const Auth = () => {
     setShow(true)
   }
 
-  if (authMode === "signup") {
+  if (authMode === "signin") {
     return (
       <div className="Auth-form-container">
         <form className="Auth-form" onSubmit={onSubmitLogin}>
@@ -96,21 +96,26 @@ export const Auth = () => {
                 onChange={(event) => setPassword(event.target.value)}
               />
             </div>
-            <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-            </div>
             <p className="text-center mt-2" onClick={onSubmitPassword}>
               Forgot{" "}
               <a href="https://media.tenor.com/M3MEScrStf4AAAAM/the-big-short-fuck.gif" allowFullScreen alt="funny GIF" style={{ fontSize: 16 }}>
                 password?
               </a>
             </p>
+            <div className="d-grid gap-2 mt-3">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
+            <div>
+              <span className="link-primary" onClick={changeAuthMode}>
+                <a className="errorMessage">Not a member? Sign Up</a>
+              </span>
+            </div>
           </div>
           <div className="errorMessage">{errorMessage}</div>
         </form>
-      </div>
+      </div >
     );
   }
 

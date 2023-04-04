@@ -87,6 +87,7 @@ a {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
   width: 400px;
+  font-family: emoji;
 }
 .create-recipe form {
   display: flex;
@@ -122,6 +123,9 @@ li {
   /* font-family: "Lobster", cursive; */
 }
 
+.recipeTitle {
+  font-size: 15px;
+}
 h1 {
   font-size: 1.5em !important;
   margin: 0.67em 0 !important;
@@ -157,7 +161,7 @@ p {
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .Auth-form-content {

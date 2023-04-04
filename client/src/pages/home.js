@@ -2,16 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { Button, Accordion } from 'semantic-ui-react'
-
+import { Button, Accordion } from "semantic-ui-react";
+import { Collapsible } from "collapsible-react-component";
+import "collapsible-react-component/dist/index.css";
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
   const [cookies] = useCookies(["access_token"]);
-
+  const [open, setOpen] = useState(false);
   const userID = useGetUserID();
-
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -66,28 +66,52 @@ export const Home = () => {
 
   return (
     <div className="title">
-      <h1 style={{ fontFamily: "fantasy" }} >Recipes Home</h1>
-      <div>
-
-      </div>
+      <h1 style={{ fontFamily: "fantasy" }}>Recipes Home</h1>
       <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe._id}>
-            <div>
-              <h2 className="title">{recipe.name}</h2>
-              <Button class="ui fade animated button" style={{ width: '150px' }} animated onClick={() => saveRecipe(recipe._id)}
-                disabled={isRecipeSaved(recipe._id)}>
-                <Button.Content visible> {isRecipeSaved(recipe._id) ? "Saved" : "Click To Save"}</Button.Content>
-                <Button.Content hidden>Save Recipe to Login</Button.Content>
-              </Button>
-            </div>
-            <div className="instructions">
-              <p>{recipe.instructions}</p>
-            </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
-          </li>
-        ))}
+        <div>
+          {recipes.map((recipe) => (
+            <li key={recipe._id}>
+              <div>
+                {/* <button class="btn btn-link" >
+              <h2 className="title" onClick={() => {
+                setOpen(!open)
+              }} > {open ? 'Close' : 'Open'}{recipe.name}</h2>
+            </button> */}
+                <Button
+                  type="button"
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                >
+                  {/* {open ? "Close" : "Open"} */}
+                  <h5 className="recipeTitle">{recipe.name}</h5>
+                </Button>
+
+                <Collapsible open={open}>
+                  {/* <h2 className="title">{recipe.name}</h2> */}
+                  <Button
+                    class="ui fade animated button"
+                    style={{ width: "150px" }}
+                    animated
+                    onClick={() => saveRecipe(recipe._id)}
+                    disabled={isRecipeSaved(recipe._id)}
+                  >
+                    <Button.Content visible>
+                      {" "}
+                      {isRecipeSaved(recipe._id) ? "Saved" : "Click To Save"}
+                    </Button.Content>
+                    <Button.Content hidden>Save Recipe to Login</Button.Content>
+                  </Button>
+                  <div className="instructions">
+                    <p>{recipe.instructions}</p>
+                  </div>
+                  <img src={recipe.imageUrl} alt={recipe.name} />
+                  <p>Cooking Time: {recipe.cookingTime} minutes</p>
+                </Collapsible>
+              </div>
+            </li>
+          ))}
+        </div>
       </ul>
     </div>
   );
