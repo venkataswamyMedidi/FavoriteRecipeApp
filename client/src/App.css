@@ -92,6 +92,7 @@ a {
 .create-recipe form {
   display: flex;
   flex-direction: column;
+  font-size: 18px;
 }
 ul {
   list-style: none;
@@ -125,6 +126,11 @@ li {
 
 .recipeTitle {
   font-size: 15px;
+}
+.instructions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 h1 {
   font-size: 1.5em !important;

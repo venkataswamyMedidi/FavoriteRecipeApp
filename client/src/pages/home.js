@@ -84,11 +84,14 @@ export const Home = () => {
                   }}
                 >
                   {/* {open ? "Close" : "Open"} */}
-                  <h5 className="recipeTitle">{recipe.name}</h5>
+                  <h5 className="recipeTitle">{recipe.name} &nbsp;
+                    <i class="chevron up icon"></i>
+                  </h5>
                 </Button>
 
                 <Collapsible open={open}>
                   {/* <h2 className="title">{recipe.name}</h2> */}
+                  <br />
                   <Button
                     class="ui fade animated button"
                     style={{ width: "150px" }}
@@ -106,7 +109,7 @@ export const Home = () => {
                     <p>{recipe.instructions}</p>
                   </div>
                   <img src={recipe.imageUrl} alt={recipe.name} />
-                  <p>Cooking Time: {recipe.cookingTime} minutes</p>
+                  <h6 className="instructions">Cooking Time: {recipe.cookingTime} minutes</h6>
                 </Collapsible>
               </div>
             </li>
